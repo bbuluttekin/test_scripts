@@ -31,7 +31,7 @@ def add_students():
 
 def top_student():
     student = Student.select().order_by(Student.points.desc()).get()
-    return Student
+    return student
 
 
 if __name__ == '__main__':
