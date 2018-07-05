@@ -1,14 +1,24 @@
+#!/usr/bin/env python3
 from peewee import *
+import datetime
 
 db = SqliteDatabase("diary.db")
 
 
 class Entry(Model):
     # content
+    content = TextField()
     # timestamp
+    timestamp = DateTimeField(default=datetime.datetime.now)
 
     class Meta:
         database = db
+
+
+def initialize():
+    """Create the database and the table if not exist"""
+    db.connect()
+    db.create_tables([Entry], safe=True)
 
 
 def menu_loop():
@@ -28,4 +38,5 @@ def delete_entry():
 
 
 if __name__ == '__main__':
+    initialize()
     menu_loop()
