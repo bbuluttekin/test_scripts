@@ -44,7 +44,7 @@ def add_entry():
 
     if data:
         if input("Save entry? [Yn]").lower() != 'n':
-            Entry.create(connect=data)
+            Entry.create(content=data)
             print("Saved successfully!")
 
 
@@ -59,6 +59,7 @@ def view_entries(search_query=None):
         print(timestamp)
         print("="*len(timestamp))
         print(entry.content)
+        print("\n\n"+"="*len(timestamp))
         print("N) next entry")
         print("d) delete entry")
         print("q) return to main menu")
