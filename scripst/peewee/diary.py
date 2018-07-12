@@ -50,6 +50,19 @@ def add_entry():
 
 def view_entries():
     """View previous entries"""
+    entries = Entry.select().order_by(Entry.timestamp.desc())
+
+    for entry in entries:
+        timestamp = entry.timestamp.strftime("%A %B %d, %Y %I:%M%p")
+        print(timestamp)
+        print("="*len(timestamp))
+        print(entry.content)
+        print("N) next entry")
+        print("q) return to main menu")
+
+        next_action = input("Action: [Nq]").lower().strip()
+        if next_action == "q":
+            break
 
 
 def delete_entry():
@@ -59,6 +72,7 @@ def delete_entry():
 menu = OrderedDict([
     ("a", add_entry),
     ("v", view_entries)
+    ("s", search_entries)
 ])
 
 if __name__ == '__main__':
