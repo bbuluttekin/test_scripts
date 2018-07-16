@@ -32,10 +32,14 @@ def extractMetaData(image, output):
 
 
 def transformGPSData(lat, lon):
-    pass
+    latData = int(lat[0][0]) + (int(lat[1][0]) / 3600.0) + (int(lat[2][0]) / 60.0)
+    lonData = int(lon[0][0]) + (int(lon[1][0]) / 3600.0) + (int(lon[2][0]) / 60.0)
+    return latData, lonData
 
 
 if __name__ == '__main__':
     for img in glob.glob("*.jpg"):
         meta = extractMetaData(img, output=None)
-        # print(meta["GPSInfo"][2][0][0])
+        print(transformGPSData(meta["GPSInfo"][2], meta["GPSInfo"][4]))
+        print(meta["GPSInfo"][2], meta["GPSInfo"][4])
+        print(meta["GPSInfo"])
