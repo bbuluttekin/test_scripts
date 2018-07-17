@@ -1,3 +1,4 @@
 *.db
 *.jpeg
 *.jpg
+.DS_Store
