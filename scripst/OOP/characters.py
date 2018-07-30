@@ -2,15 +2,16 @@
 import random
 
 
-class Thief:
-    sneaky = True
-
-    def __init__(self, name, sneaky=True, **kwargs):
+class Character:
+    def __init__(self, name, **kwargs):
         self.name = name
-        self.sneaky = sneaky
 
-        for key, value in kwargs.items:
+        for key, value in kwargs.items():
             setattr(self, key, value)
+
+
+class Thief(Character):
+    sneaky = True
 
     def pickpocket(self):
         return self.sneaky and bool(random.randint(0, 1))
