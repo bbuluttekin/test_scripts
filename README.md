@@ -4,3 +4,4 @@ This Repo is mainly for backup purposes for the experimental scripts I created f
 
 libraries used in the scripts:
 - Peewee
+- Object Oriented Programming
