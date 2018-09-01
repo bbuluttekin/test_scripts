@@ -38,9 +38,9 @@ def count_triangles(records, fellow_travelers):
     return coll.Counter(triangles)
 
 
-def recommend_listings(counts, user_listing):
+def recommend_listings(counts, user_listing, num=10):
     for listing in user_listing:
         if listing in counts:
             counts.pop(listing)
 
-    return counts.most_common(5)
+    return counts.most_common(num)
