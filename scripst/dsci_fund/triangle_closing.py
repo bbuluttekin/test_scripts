@@ -1,14 +1,7 @@
 import csv
+import sys
+import webbrowser
 import collections as coll
-
-# open and parse CSV file
-csvfile = open("../reviews.csv", newline='')
-reader = csv.reader(csvfile)
-headers = next(reader)
-records = list(reader)
-
-jonathan = "1465258"
-jonathan_reviews = []
 
 
 def find_listings(records, user_id):
@@ -44,3 +37,22 @@ def recommend_listings(counts, user_listing, num=10):
             counts.pop(listing)
 
     return counts.most_common(num)
+
+
+if __name__ == '__main__':
+    filename, user_id = sys.argv[1:]
+    # open and parse CSV file
+    csvfile = open(filename, newline='')
+    reader = csv.reader(csvfile)
+    headers = next(reader)
+    records = list(reader)
+
+    user_listing = find_listings(records, user_id)
+    user_fellow = find_travelers(records, user_listing)
+    counts = count_triangles(records, user_fellow)
+    recommendations = recommend_listings(counts, user_listing)
+
+    for rec in recommendations:
+        pass
+        #webbrowser.open("http://airbnb.com/rooms/" + rec[0])
+    print(recommendations)
