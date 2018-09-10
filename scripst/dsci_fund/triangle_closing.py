@@ -54,5 +54,8 @@ if __name__ == '__main__':
 
     for rec in recommendations:
         pass
+        """
+        Un comment the line below to see the suggestions on webbrowser
+        """
         #webbrowser.open("http://airbnb.com/rooms/" + rec[0])
     print(recommendations)
