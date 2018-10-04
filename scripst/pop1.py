@@ -50,3 +50,59 @@ print((num % 100) // 10)
 
 num = input()
 print(int(num[0]) + int(num[1]) + int(num[2]))
+
+# Fractional part
+
+num = float(input())
+print(num - int(num))
+
+# First digit after decimal point
+
+num = float(input())
+print(int((((num - int(num)) * 100) - (((num - int(num)) * 100) % 10)) // 10))
+
+# Car route
+
+n = int(input())
+m = int(input())
+print((m // n) + (m % n != 0))
+
+# Digital Clock
+
+n = int(input())
+print(n // 60, n % 60)
+
+# Total Cost
+
+A = int(input())
+B = int(input())
+N = int(input())
+print((A * N + (B * N) // 100), (B * N) % 100)
+
+# Clock Face-1
+
+h = int(input())
+m = int(input())
+s = int(input())
+print(30 * h + 30 / 60 * m + 30 / 3600 * s)
+
+# Clock Face-2
+
+A = float(input())
+print(A % 30 * 12)
+
+# Minimum of two numbers
+
+num_1 = int(input())
+num_2 = int(input())
+print(min(num_1, num_2))
+
+# Sign function
+
+int_x = int(input())
+if int_x > 0:
+    print(1)
+elif int_x < 0:
+    print(-1)
+else:
+    print(0)
