@@ -204,3 +204,107 @@ for i in range(1, 11):
     N = int(input())
     sum += N
 print(sum)
+
+# Sum of N numbers
+
+N = int(input())
+nums = None
+sum = 0
+for i in range(1, N+1):
+    nums = int(input())
+    sum += nums
+print(sum)
+
+# Factorial
+
+product = 1
+N = int(input())
+for i in range(N, 0, -1):
+    product *= i
+print(product)
+
+# The number of zeros
+
+count = 0
+N = int(input())
+number = None
+for i in range(1, N+1):
+    number = int(input())
+    if number == 0:
+        count += 1
+print(count)
+
+# Adding factorials
+
+N = int(input())
+count = 0
+for i in range(1, N + 1):
+    if N >= 1:
+        p_sum = 1
+        for j in range(1, i + 1):
+            p_sum *= j
+        count += p_sum
+print(count)
+
+# Ladder
+
+N = int(input())
+for i in range(1, N + 1):
+    print()
+    for j in range(1, i + 1):
+        print(j, end='')
+
+# Lost card
+
+N = int(input())
+l_cards = list(range(1, N+1))
+for i in range(1, N):
+    C = int(input())
+    l_cards.remove(C)
+
+for i in l_cards:
+    print(i)
+
+# The length of the segment
+
+X1 = float(input())
+Y1 = float(input())
+X2 = float(input())
+Y2 = float(input())
+
+
+def distance(x1, y1, x2, y2):
+    return ((x1 - x2)**2 + (y1 - y2)**2)**0.5
+
+
+print(distance(x1=X1, y1=Y1, x2=X2, y2=Y2))
+
+# Negative exponent
+
+A = float(input())
+N = int(input())
+
+
+def power(a, n):
+    return a ** n
+
+
+print(power(A, N))
+
+# Uppercase
+
+txt = input()
+
+
+def capitalize(text):
+    if ' ' in text:
+        l_text = text.split(' ')
+        for i in l_text:
+            l_text[l_text.index(i)] = i[0].upper() + i[1:]
+        return ' '.join(l_text)
+    else:
+        l_text = text[0].upper() + text[1:]
+        return l_text
+
+
+print(capitalize(txt))
