@@ -192,3 +192,116 @@ for item in range(len(S)):
     if item % 3 != 0:
         x = x + S[item]
 print(x)
+
+# The number of distinct numbers
+
+S = set([int(x) for x in input().split()])
+print(len(S))
+
+# The number of equal numbers
+
+print(len(set(input().split()).intersection(set(input().split()))))
+
+# The intersection of sets
+
+S = set(input().split()).intersection(set(input().split()))
+o_l = [int(x) for x in S]
+for i in sorted(o_l):
+    print(i)
+
+# Cubes
+
+N, M = [int(x) for x in input().split()]
+al = set()
+bob = set()
+for i in range(N):
+    al.add(int(input()))
+for i in range(M):
+    bob.add(int(input()))
+
+print(len(al & bob))
+print(*[str(x) for x in sorted(al & bob)])
+print(len(al - bob))
+print(*[str(x) for x in sorted(al - bob)])
+print(len(bob - al))
+print(*[str(x) for x in sorted(bob - al)])
+
+# Guess the number
+
+N = int(input())
+numbers = set(range(1, N + 1))
+p = numbers
+while True:
+    g = input()
+    if g == "HELP":
+        break
+    g = {int(x) for x in g.split()}
+    a = input()
+    if a == "YES":
+        p &= g
+    else:
+        p &= numbers - g
+print(" ".join([str(x) for x in sorted(p)]))
+
+# Polyglots
+
+S = [{input() for i in range(int(input()))} for x in range(int(input()))]
+ke, ks = set.intersection(*S), set.union(*S)
+print(len(ke), *sorted(ke), sep='\n')
+print(len(ks), *sorted(ks), sep='\n')
+
+# Number of occurrences
+
+c = {}
+for w in input().split():
+    c[w] = c.get(w, 0) + 1
+    print(c[w] - 1, end=' ')
+
+# Dictionary of synonyms
+
+number = int(input())
+d = {}
+for x in range(number):
+    f, s = input().split()
+    d[f] = s
+    d[s] = f
+print(d[input()])
+
+# Access rights
+
+p = {'read': 'R', 'write': 'W', 'execute': 'X'}
+fp = {}
+for x in range(int(input())):
+    fi, *pe = input().split()
+    fp[fi] = set(pe)
+for item in range(int(input())):
+    o, fi = input().split()
+    if p[o] in fp[fi]:
+        print('OK')
+    else:
+        print('Access denied')
+
+# Frequency analysis
+
+from collections import Counter
+w = []
+for x in range(int(input())):
+    w.extend(input().split())
+
+c = Counter(w)
+p = [(-x[1], x[0]) for x in c.most_common()]
+w = [i[1] for i in sorted(p)]
+print('\n'.join(w))
+
+# English-Latin dictionary
+
+from collections import defaultdict
+le = defaultdict(list)
+for x in range(int(input())):
+    ew, ltc = input().split(' - ')
+    lt = ltc.split(', ')
+    for i in lt:
+        le[i].append(ew)
+print(len(le))
+for i, j in sorted(le.items()):
+    print(i + ' - ' + ', '.join(j))
